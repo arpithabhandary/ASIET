@@ -1,2 +1,2 @@
 # ASIET
-semester wise notes and projects
+# semester wise notes and projects

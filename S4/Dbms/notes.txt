@@ -1,0 +1,112 @@
+create table salesman(salesman_id number(5),name char(15),city char(10),commission decimal(5,2),Primary key(salesman_id)); #to crete table and have made it primary key 
+SQL> select * from salesman;
+
+SALESMAN_ID NAME	    CITY       COMMISSION
+----------- --------------- ---------- ----------
+	  1 Abel Jeevan     Ern 	     3.21
+	  2 Abhijith U	    chn 	      2.1
+	  3 Adwaith	        MH		      2.4
+	  4 Anagha suresh   kerala	    2.5
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL> insert into salesman values(&salesman_id,'&name','&city',&commission);
+Enter value for salesman_id: 0001
+Enter value for name: Abel Jeevan
+Enter value for city: Ern
+Enter value for commission: 3.21
+old   1: insert into salesman values(&salesman_id,'&name','&city',&commission)
+new   1: insert into salesman values(0001,'Abel Jeevan','Ern',3.21)
+
+ #to add values continously use '/' when u want to add new row
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select * from salesman; #to show the full table 
+SQL> select * from salesman;
+
+SALESMAN_ID NAME	    CITY       COMMISSION
+----------- --------------- ---------- ----------
+	  1 Abel Jeevan     Ern 	     3.21
+	  2 Abhijith U	    chn 	      2.1
+	  3 Adwaith	    MH		      2.4
+	  4 Anagha suresh   kerala	      2.5
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select commission,city,salesman_id from salesman;
+
+COMMISSION CITY       SALESMAN_ID
+---------- ---------- -----------
+      3.21 Ern			1
+       2.1 chn			2
+       2.4 MH			3
+       2.5 kerala		4
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select DISTINCT city from salesman;
+
+CITY
+----------
+chn
+Ern
+kerala
+MH
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL> CREATE table orders(order_no number(5) Primary key ,purchase_amt number(5),ord_date date,cust_id number(5),salesman_id number(5),FOREIGN KEY(salesman_id) REFERENCES salesman(salesman_id));
+
+Table created.
+# to access it using a file / or to create a table using file then u have to use 
+1.open text editor 
+2.write the query 
+3.the save it using FILENAME.sql
+4. write the command on oracle 
+SQL> set serveroutput on;
+SQL> @order.sql
+CREATE table orders(order_no number(5) Primary key ,purchase_amt number(5),ord_date date,cust_id number(5),salesman_id number(5),FOREIGN KEY(salesman_id) REFERENCES salesman(salesman_id))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ORDER_NO PURCHASE_AMT ORD_DATE    CUST_ID SALESMAN_ID
+---------- ------------ -------- ---------- -----------
+       121	    300 12-01-25       2345	      2
+       122	    435 13-01-25       2543	      1
+       123	    234 19-12-24       5432	      3
+       124	    654 20-02-25       3214	      4
+THE TABLE OF ORDERS
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+sql> select order_no  from orders where ord_date>'01-jan-2023' AND purchase_amt>300 AND salesman_id>1;
+
+  ORDER_NO
+----------
+       124
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

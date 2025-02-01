@@ -211,7 +211,45 @@ GREATEST('0
 02-feb-2001
 -----------------------------------------------------------------------------------------------------------------
 
+select emp_id,addr from ar_op where emp_name like 'At%';
 
+    EMP_ID ADDR
+---------- ----------
+	 3 Canada
+
+SQL> select emp_id,addr from ar_op where emp_name like '%hu%';
+
+    EMP_ID ADDR
+---------- ----------
+	 3 Canada
+----------------------------------------------------------------------------------------------------------------------
+select * from ar_op where emp_name like 'A%'and addr ='india';
+
+    EMP_ID EMP_NAM     SALARY ADDR
+---------- ------- ---------- ----------
+	 1 Ashna       500000 india
+
+-------------------------------------------------------------------------------------------------------------------------
+select emp_name from ar_op where addr IN('india','LA');
+
+EMP_NAM
+-------
+Ashna
+Ashwin
+
+select emp_name from ar_op where addr not IN('india','LA');
+
+EMP_NAM
+-------
+Athul
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+create table student(ID number(4) primary key, name char(10),admn_date date, dept char(30));     
+
+
+ insert into student values(&ID,'&name',&date,'&dept');
 
 
 

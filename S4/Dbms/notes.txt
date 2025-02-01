@@ -77,8 +77,139 @@ sql> select order_no  from orders where ord_date>'01-jan-2023' AND purchase_amt>
 ----------
        124
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CHARACTER FUNCTION
+
+lower -
+select lower('ARTIFICIALINTELLIGENCE') from dual;
+
+LOWER('ARTIFICIALINTEL
+----------------------
+artificialintelligence
+
+-----------------------------------------------------------------------------
+UPPER-
+select lower('ARTIFICIALINTELLIGENCE') from dual;
+
+LOWER('ARTIFICIALINTEL
+----------------------
+artificialintelligence
+
+-------------------------------------------------------------------------------
+ select initcap('artificial intelligence')from dual;
+
+INITCAP('ARTIFICIALINTE
+-----------------------
+Artificial Intelligence # first character is cap
+
+----------------------------------------------------------------------------------
+select concat('artificial','intelligence')from dual;
+
+CONCAT('ARTIFICIAL','I
+----------------------
+artificialintelligence
 
 
+SQL> select length('artificialintelligence') from dual;                                         
+
+LENGTH('ARTIFICIALINTELLIGENCE')
+--------------------------------
+
+			      22
+-------------------------------------------------------------------------------------
+select length('') from dual;
+
+LENGTH('')
+----------
+
+-----------------------------------------------------------------------------------------
+select substr('database management system',9)from dual;
+
+SUBSTR('DATABASEMA
+------------------
+ management system
+-----------------------------------------------------------------------------------------
+
+select instr('ASIET is a great Institution','ins')from dual;
+
+INSTR('ASIETISAGREATINSTITUTION','INS')
+---------------------------------------
+				      18
+-------------------------------------------------------------------------------------------
+
+select lpad('100',5,'*')from dual;
+
+LPAD(
+-----
+**100
+
+SQL> select rpad('100',5,'*')from dual;
+
+RPAD(
+-----
+100**
+------------------------------------------------------------------------------------------------
+
+select lpad('hello',21,'ASIET')from dual;
+
+LPAD('HELLO',21,'ASIE
+---------------------
+ASIETASIETASIETAhello
+---------------------------------------------------------------------------------------------------
+
+select trim('A' from 'ASIET') from dual;
+
+TRIM
+----
+SIET
+
+SQL> select trim('A' from 'asiet')from dual;
+
+TRIM(
+-----
+asiet
+
+select trim('  this is asiet  ')from dual;
+
+TRIM('THISISA
+-------------
+this is asiet
+
+
+---------------------------------------------------------------------------------------------------
+SQL> select replace('data management' ,'data','database')from dual;
+
+REPLACE('DATAMANAGE
+-------------------
+database management
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATE
+
+SQL> select sysdate from dual;
+
+SYSDATE
+--------
+01-02-25
+
+-------------------------------------------------------------------------------------------------------
+
+SQL> select next_day(sysdate,'wed')from dual;
+
+NEXT_DAY
+--------
+05-02-25
+------------------------------------------------------------------------------------------------------------
+ select least('01-jan-2001','02-feb-2001') from dual;
+
+LEAST('01-J
+-----------
+01-jan-2001
+
+select greatest('01-jan-2001','02-feb-2001') from dual;
+
+GREATEST('0
+-----------
+02-feb-2001
+-----------------------------------------------------------------------------------------------------------------
 
 
 
